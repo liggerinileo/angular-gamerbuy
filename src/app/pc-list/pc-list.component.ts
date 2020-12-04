@@ -16,6 +16,7 @@ export class PcListComponent implements OnInit {
       "stock": 7,
       "image": "assets/img/intelcorei9.jpg",
       "clearance": false,
+      "quantity": 0,
     },
     {
       "name": "Nvidia GeForce RTX 2080ti",
@@ -24,6 +25,7 @@ export class PcListComponent implements OnInit {
       "stock": 5,
       "image": "assets/img/intelcorei9.jpg",
       "clearance": true,
+      "quantity": 0,
     },
     {
       "name": "Gigabyte Z490 Aorus Master",
@@ -32,6 +34,7 @@ export class PcListComponent implements OnInit {
       "stock": 10,
       "image": "assets/img/intelcorei9.jpg",
       "clearance": false,
+      "quantity": 0,
     },
     {
       "name": "Viewsonic 24' Curvo 144Hz Full HD",
@@ -40,11 +43,28 @@ export class PcListComponent implements OnInit {
       "stock": 0,
       "image": "assets/img/intelcorei9.jpg",
       "clearance": false,
+      "quantity": 0,
     },
   ]  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  upQuantity(pcComponent: Pc): void {
+    if (pcComponent.quantity < pcComponent.stock) {
+      pcComponent.quantity++;
+    }
+  }
+
+  downQuantity(pcComponent: Pc): void {
+    if (pcComponent.quantity > 0) {
+      pcComponent.quantity--;
+    }
+  }
+
+  changeQuantity(event, pcComponent: Pc): void {
+    event.preventDefault();
   }
 
 }

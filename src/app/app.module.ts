@@ -6,15 +6,22 @@ import { AppComponent } from './app.component';
 import { PcListComponent } from './pc-list/pc-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
+import { FormsModule } from '@angular/forms';
+import { GamerbuyAboutComponent } from './gamerbuy-about/gamerbuy-about.component';
+import { GamerbuyPcComponent } from './gamerbuy-pc/gamerbuy-pc.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     PcListComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    GamerbuyAboutComponent,
+    GamerbuyPcComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
