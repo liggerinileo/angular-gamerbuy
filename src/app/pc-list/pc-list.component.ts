@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Pc } from './Pc';
 
 @Component({
   selector: 'app-pc-list',
@@ -7,14 +8,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PcListComponent implements OnInit {
 
-  pcComponent = {
-    "name": "Intel Core i9 9900k",
-    "productType": "CPU",
-    "price": 899.99,
-    "stock": 7,
-    "image": "assets/img/intelcorei9.jpg"
-  }
-
+  pcComponents: Pc[] = [
+    {
+      "name": "Intel Core i9 9900k",
+      "productType": "CPU",
+      "price": 899.99,
+      "stock": 7,
+      "image": "assets/img/intelcorei9.jpg",
+      "clearance": false,
+    },
+    {
+      "name": "Nvidia GeForce RTX 2080ti",
+      "productType": "GPU",
+      "price": 1199.99,
+      "stock": 5,
+      "image": "assets/img/intelcorei9.jpg",
+      "clearance": true,
+    },
+    {
+      "name": "Gigabyte Z490 Aorus Master",
+      "productType": "Motherboard",
+      "price": 1799.99,
+      "stock": 10,
+      "image": "assets/img/intelcorei9.jpg",
+      "clearance": false,
+    },
+    {
+      "name": "Viewsonic 24' Curvo 144Hz Full HD",
+      "productType": "Monitor",
+      "price": 499.99,
+      "stock": 0,
+      "image": "assets/img/intelcorei9.jpg",
+      "clearance": false,
+    },
+  ]  
   constructor() { }
 
   ngOnInit(): void {
