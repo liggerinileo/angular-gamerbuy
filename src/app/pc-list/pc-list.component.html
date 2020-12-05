@@ -1,30 +1,24 @@
 <table class="table text-center" style="height: 100px;">
     <thead>
         <tr>
-            <th>Imagen</th>
+            <th></th>
             <th>Nombre</th>
-            <th>Producto</th>
             <th>Precio</th>
             <th>Stock</th>
-            <th>Compra</th>
+            <th>Cantidad</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let pcComponent of pcComponents" [ngClass]="{'clearance': pcComponent.clearance}">
-            <td><img [src]="pcComponent.image" width="100" class="img-thumbnail" [alt]="pcComponent.name"></td>
+            <td><img [src]="pcComponent.image" width="100" class="img-fluid" [alt]="pcComponent.name"></td>
             <td>{{pcComponent.name}}</td>
-            <td>{{pcComponent.productType}}</td>
             <td>{{pcComponent.price | currency}}</td>
             <td><span class="badge badge-danger" *ngIf="pcComponent.stock==0">SIN STOCK</span></td>
-            <td *ngIf="pcComponent.stock>0">
-                <button class="btn btn-primary btn-sm botonCantididad" (click)="upQuantity(pcComponent)">+</button>
-                <input
-                    class="inputCompra text-center" 
-                    type="text" 
-                    [(ngModel)]="pcComponent.quantity"
-                    (keyup)="changeQuantity($event, pcComponent)"
-                >
-                <button class="btn btn-primary btn-sm botonCantididad" (click)="downQuantity(pcComponent)">-</button>
+            <td>
+                <app-input-integer [(quantity)]="pcComponent.quantity" [max]="pcComponent.stock" *ngIf="pcComponent.stock"></app-input-integer>
+            </td>
+            <td>
+                <button class="btn btn-primary mt-1" (click)="addToCart(pcComponent)">Comprar</button>
             </td>
         </tr>
     </tbody>
