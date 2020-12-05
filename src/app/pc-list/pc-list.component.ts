@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComponentDataService } from '../component-data.service';
 import { PcCartService } from '../pc-cart.service';
 import { Pc } from './Pc';
 
@@ -42,18 +43,33 @@ export class PcListComponent implements OnInit {
       "clearance": false,
       "quantity": 0,
     },
+    {
+      "name": "Silla Dxracer",
+      "price": 299.99,
+      "stock": 4,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_922626-MLA31662361773_082019-O.jpg",
+      "clearance": false,
+      "quantity": 0,
+    },
   ]  
 
-  constructor(private cart: PcCartService) { 
-  }
+  // pcComponents: Pc[] = [];
+
+  constructor(private cart: PcCartService, 
+              // private componentsDataService: ComponentDataService
+              ) { }
 
   ngOnInit(): void {
+    // this.componentsDataService.getAll()
+    //   .subscribe(components => this.pcComponents = components);
   }
 
   addToCart(pcComponent): void {
-    this.cart.addToCart(pcComponent);
-    pcComponent.stock -= pcComponent.quantity;
-    pcComponent.quantity = 0;
+    if (pcComponent.quantity > 0) {
+      this.cart.addToCart(pcComponent);
+      pcComponent.stock -= pcComponent.quantity;
+      pcComponent.quantity = 0;
+    }
   }
 
 }

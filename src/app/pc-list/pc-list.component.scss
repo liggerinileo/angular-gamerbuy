@@ -1,7 +1,17 @@
-td {
-    vertical-align: middle;
-}
-
 .clearance {
     background-color: rgb(152, 255, 148);
+}
+
+img {
+    width: 160px;
+    float: left;
+}
+
+.card {
+    height: 170px;
+}
+
+.cards {
+    align-items: center;
+    display: inline-flex;
 }
